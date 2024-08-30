@@ -2,6 +2,7 @@ using AutoMapper;
 using FilmeApi.Data;
 using FilmeApi.Data.Dtos;
 using FilmeApi.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmeApi.Controllers;
@@ -22,9 +23,9 @@ public class FilmeController : ControllerBase
     /// <summary>
     /// Adiciona um filme ao banco de dados
     /// </summary>
-    /// <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+    /// <param name="filmeDto">Objeto com os campos necessï¿½rios para criaï¿½ï¿½o de um filme</param>
     /// <returns>IActionResult</returns>
-    /// <response code="201">Caso inserção seja feita com sucesso</response>
+    /// <response code="201">Caso inserï¿½ï¿½o seja feita com sucesso</response>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     public IActionResult AdicionarFilme([FromBody] CreateFilmeDto filmeDto)
@@ -49,7 +50,7 @@ public class FilmeController : ControllerBase
         var filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
         if (filme == null) return NotFound();
         var filmeDto = _mapper.Map<ReadFilmeDto>(filme);
-        return Ok(filmeDto)
+        return Ok(filmeDto);
     }
 
     [HttpPut("{id}")]
@@ -91,6 +92,4 @@ public class FilmeController : ControllerBase
         _context.SaveChanges();
         return NoContent();
     }
-
-
 }

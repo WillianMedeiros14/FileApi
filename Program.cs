@@ -1,5 +1,7 @@
+using System.Reflection;
 using FilmeApi.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
