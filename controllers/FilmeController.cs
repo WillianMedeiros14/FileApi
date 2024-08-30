@@ -2,6 +2,7 @@ using AutoMapper;
 using FilmeApi.Data;
 using FilmeApi.Data.Dtos;
 using FilmeApi.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmeApi.Controllers;
@@ -91,6 +92,4 @@ public class FilmeController : ControllerBase
         _context.SaveChanges();
         return NoContent();
     }
-
-
 }
