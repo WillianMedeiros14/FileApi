@@ -29,6 +29,7 @@ services:
       [
         "dotnet-ef",
         "database",
+        "add",
         "update",
         "--project",
         "FilmesApi.csproj",
